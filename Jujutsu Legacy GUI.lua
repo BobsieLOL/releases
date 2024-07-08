@@ -203,7 +203,7 @@ MiscTab:CreateDropdown({
     MultipleOptions = false,
     Flag = "Dropdown1", 
     Callback = function(Option)
-        game:GetService("ReplicatedStorage"):WaitForChild("SetTechnique"):FireServer(game.Players.LocalPlayer.Technique.Value, extractName(Option), 1, convertPercentageToDecimal(Option))
+        game:GetService("ReplicatedStorage"):WaitForChild("SetTechnique"):FireServer(game.Players.LocalPlayer.Technique.Value, extractName(Option[1]), 1, convertPercentageToDecimal(Option[1]))
         game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
     end,
 })
@@ -215,7 +215,7 @@ MiscTab:CreateDropdown({
     MultipleOptions = false,
     Flag = "Dropdown1", 
     Callback = function(Option)
-        game:GetService("ReplicatedStorage"):WaitForChild("SetRace"):FireServer(game.Players.LocalPlayer.RaceStat.RaceUSE.Value, extractName(Option), 1, convertPercentageToDecimal(Option))
+        game:GetService("ReplicatedStorage"):WaitForChild("SetRace"):FireServer(game.Players.LocalPlayer.RaceStat.RaceUSE.Value, extractName(Option[1]), 1, convertPercentageToDecimal(Option[1]))
     end,
 })
 
@@ -226,7 +226,8 @@ MiscTab:CreateDropdown({
     MultipleOptions = false,
     Flag = "Dropdown1", 
     Callback = function(Option)
-        game:GetService("ReplicatedStorage"):WaitForChild("SetClan"):FireServer(game.Players.LocalPlayer.RaceStat.RaceUSE.Value, extractName(Option), 1, convertPercentageToDecimal(Option))
+        if Option[1] == "None" then return end
+        game:GetService("ReplicatedStorage"):WaitForChild("SetClan"):FireServer(game.Players.LocalPlayer.RaceStat.RaceUSE.Value, extractName(Option[1]), 1, convertPercentageToDecimal(Option[1]))
     end,
 })
 -- Made by: Kirbles
