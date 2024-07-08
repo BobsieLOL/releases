@@ -78,11 +78,11 @@ FarmTab:CreateDropdown({
     MultipleOptions = false,
     Flag = "Dropdown1", 
     Callback = function(Option)
-        getgenv().selectednpc = Option
-        if workspace.Npc:FindFirstChild(Option):FindFirstChild("HumanoidRootPart") then
-            HRP.CFrame = workspace.Npc:FindFirstChild(Option).HumanoidRootPart.CFrame
-        elseif not workspace.Npc:FindFirstChild(Option):FindFirstChild("HumanoidRootPart") then
-            HRP.Position = workspace.Npc:FindFirstChild(Option).WorldPivot.Position
+        getgenv().selectednpc = Option[1]
+        if workspace.Npc:FindFirstChild(Option[1]):FindFirstChild("HumanoidRootPart") then
+            HRP.CFrame = workspace.Npc:FindFirstChild(Option[1]).HumanoidRootPart.CFrame
+        elseif not workspace.Npc:FindFirstChild(Option[1]):FindFirstChild("HumanoidRootPart") then
+            HRP.Position = workspace.Npc:FindFirstChild(Option[1]).WorldPivot.Position
         end
     end,
 })
@@ -94,7 +94,7 @@ FarmTab:CreateDropdown({
     MultipleOptions = false,
     Flag = "Dropdown1", 
     Callback = function(Option)
-        getgenv().selectedenemy = Option
+        getgenv().selectedenemy = Option[1]
     end,
 })
 
@@ -164,14 +164,14 @@ FarmTab:CreateDropdown({
     MultipleOptions = false,
     Flag = "Dropdown1", 
     Callback = function(Option)
-        if Option == "Z" then
-            getgenv().skillkeybind = Option
-        elseif Option == "X" then
-            getgenv().skillkeybind = Option
-        elseif Option == "C" then
-            getgenv().skillkeybind = Option
-        elseif Option == "V" then
-            getgenv().skillkeybind = Option
+        if Option[1] == "Z" then
+            getgenv().skillkeybind = Option[1]
+        elseif Option[1] == "X" then
+            getgenv().skillkeybind = Option[1]
+        elseif Option[1] == "C" then
+            getgenv().skillkeybind = Option[1]
+        elseif Option[1] == "V" then
+            getgenv().skillkeybind = Option[1]
         end
     end,
 })
